@@ -21,16 +21,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SushiSlam.cpp">
+    <ClCompile Include="Class\SushiSlam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
+    <ClCompile Include="Class\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="Class\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MakiCard.cpp">
+    <ClCompile Include="Class\MakiCard.cpp">
       <Filter>Source Files\Card Types</Filter>
     </ClCompile>
   </ItemGroup>

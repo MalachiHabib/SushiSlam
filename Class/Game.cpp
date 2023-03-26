@@ -1,9 +1,9 @@
 #include <iostream>
 #include <algorithm>
 #include <random>
-#include "Header/Game.h"
-#include "Header/Card.h"
-#include "Header/MakiCard.h"
+#include "../Header/Game.h"
+#include "../Header/Card.h"
+#include "../Header/MakiCard.h"
 
 void Game::initPlayers() {
 	Card* makiRoll = new MakiCard();

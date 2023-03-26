@@ -182,10 +182,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SushiSlam.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="MakiCard.cpp" />
-    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Class\SushiSlam.cpp" />
+    <ClCompile Include="Class\Game.cpp" />
+    <ClCompile Include="Class\MakiCard.cpp" />
+    <ClCompile Include="Class\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Card.h" />
