@@ -1,6 +1,6 @@
 #include <iostream>
-#include "player.h"
-#include "Card.h"
+#include "Header/Player.h"
+#include "Header/Card.h"
 
 
 using namespace std;

@@ -35,25 +35,25 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="Header\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="Header\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Card.h">
+    <ClInclude Include="Header\Card.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MakiCard.h">
+    <ClInclude Include="Header\MakiCard.h">
       <Filter>Header Files\Card Types</Filter>
     </ClInclude>
-    <ClInclude Include="Tempura.h">
+    <ClInclude Include="Header\Tempura.h">
       <Filter>Header Files\Card Types</Filter>
     </ClInclude>
-    <ClInclude Include="Sashimi.h">
+    <ClInclude Include="Header\Sashimi.h">
       <Filter>Header Files\Card Types</Filter>
     </ClInclude>
-    <ClInclude Include="Dumpling.h">
+    <ClInclude Include="Header\Dumpling.h">
       <Filter>Header Files\Card Types</Filter>
     </ClInclude>
   </ItemGroup>

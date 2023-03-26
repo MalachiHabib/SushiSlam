@@ -188,13 +188,13 @@
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Card.h" />
-    <ClInclude Include="Dumpling.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="MakiCard.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Sashimi.h" />
-    <ClInclude Include="Tempura.h" />
+    <ClInclude Include="Header\Card.h" />
+    <ClInclude Include="Header\Dumpling.h" />
+    <ClInclude Include="Header\Game.h" />
+    <ClInclude Include="Header\MakiCard.h" />
+    <ClInclude Include="Header\Player.h" />
+    <ClInclude Include="Header\Sashimi.h" />
+    <ClInclude Include="Header\Tempura.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
