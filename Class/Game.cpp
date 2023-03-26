@@ -3,7 +3,7 @@
 #include <random>
 #include "../Header/Game.h"
 #include "../Header/Card.h"
-#include "../Header/MakiCard.h"
+#include "../Header/CardTypes/MakiCard.h"
 
 void Game::initPlayers() {
 	Card* makiRoll = new MakiCard();

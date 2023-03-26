@@ -1,4 +1,4 @@
-#include "../Header/MakiCard.h"
+#include "../../Header/CardTypes/MakiCard.h"
 
 MakiCard::MakiCard() {
 }

@@ -7,7 +7,7 @@
 #include <random>
 #include "Card.h"
 #include "Player.h"
-#include "MakiCard.h"
+#include "../Header/CardTypes/MakiCard.h"
 
 using namespace std;
 class Game {
