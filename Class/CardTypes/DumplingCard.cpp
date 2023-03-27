@@ -3,3 +3,12 @@
 DumplingCard::DumplingCard()
 {
 }
+
+CardType DumplingCard::type() const {
+	return Dumpling;
+}
+
+string DumplingCard::str() const
+{
+	return "MakiRoll()";
+}

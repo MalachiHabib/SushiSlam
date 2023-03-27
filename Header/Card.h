@@ -11,6 +11,7 @@ enum CardType {
 
 class Card {
 	public:
+	virtual ~Card() {}
 	virtual string str() const = 0;
 	virtual CardType type() const = 0;
 };

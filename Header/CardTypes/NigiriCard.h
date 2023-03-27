@@ -10,11 +10,11 @@ enum NigiriType {
 
 class NigiriCard : public Card {
 	public:
-	NigiriCard(NigiriType type);
+	NigiriCard(NigiriType nigiriType);
 
 	CardType type() const;
 	string str() const;
 
 	private:
-	NigiriType type
+	NigiriType nigiriType;
 };

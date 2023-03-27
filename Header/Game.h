@@ -30,6 +30,7 @@ class Game {
 	Player* getNextPlayer();
 	void playTurn();
 	void swapHands();
+	void printTesting();
 };
 
 #endif
