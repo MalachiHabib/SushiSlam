@@ -3,13 +3,12 @@
 #include <string>
 using namespace std;
 
-class MakiCard : public Card {
+class SashimiCard : public Card {
 	public:
-	MakiCard(int makiCount);
+	SashimiCard();
 
 	CardType type() const;
 	string str() const;
 
 	private:
-	int makiCount;
 };

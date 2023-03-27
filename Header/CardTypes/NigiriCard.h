@@ -1,15 +1,20 @@
 #pragma once
+#pragma once
 #include "../Card.h"
 #include <string>
-using namespace std;
 
-class MakiCard : public Card {
+using namespace std;
+enum NigiriType {
+	Egg, Squid, Salmon
+};
+
+class NigiriCard : public Card {
 	public:
-	MakiCard(int makiCount);
+	NigiriCard(NigiriType type);
 
 	CardType type() const;
 	string str() const;
 
 	private:
-	int makiCount;
+	NigiriType type
 };

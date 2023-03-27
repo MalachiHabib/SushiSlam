@@ -2,7 +2,7 @@
 
 int main() {
 	Game game;
-	game.initPlayers();
-
+	//game.initPlayers();
+	game.createDeck();
 	return 0;
 }

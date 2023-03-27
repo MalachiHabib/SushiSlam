@@ -1,0 +1,1 @@
+#include "../../Header/CardTypes/NigiriCard.h"

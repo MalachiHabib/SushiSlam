@@ -33,6 +33,18 @@
     <ClCompile Include="Class\CardTypes\MakiCard.cpp">
       <Filter>Source Files\Card Types</Filter>
     </ClCompile>
+    <ClCompile Include="Class\CardTypes\SashimiCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\CardTypes\DumplingCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\CardTypes\TempuraCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\CardTypes\NigiriCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Game.h">
@@ -47,14 +59,17 @@
     <ClInclude Include="Header\CardTypes\MakiCard.h">
       <Filter>Header Files\Card Types</Filter>
     </ClInclude>
-    <ClInclude Include="Header\CardTypes\Tempura.h">
+    <ClInclude Include="Header\CardTypes\TempuraCard.h">
       <Filter>Header Files\Card Types</Filter>
     </ClInclude>
-    <ClInclude Include="Header\CardTypes\Sashimi.h">
+    <ClInclude Include="Header\CardTypes\SashimiCard.h">
       <Filter>Header Files\Card Types</Filter>
     </ClInclude>
-    <ClInclude Include="Header\CardTypes\Dumpling.h">
+    <ClInclude Include="Header\CardTypes\DumplingCard.h">
       <Filter>Header Files\Card Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\CardTypes\NigiriCard.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

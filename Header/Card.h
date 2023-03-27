@@ -3,11 +3,14 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 enum CardType {
-    MakiRoll, Tempura, Sashimi, Dumplings, Nigiri
+	MakiRoll, Tempura, Sashimi, Dumpling, Nigiri
 };
 
 class Card {
-    public:
-    virtual CardType type() const = 0;
+	public:
+	virtual string str() const = 0;
+	virtual CardType type() const = 0;
 };

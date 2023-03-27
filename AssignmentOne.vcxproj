@@ -186,15 +186,20 @@
     <ClCompile Include="Class\Game.cpp" />
     <ClCompile Include="Class\CardTypes\MakiCard.cpp" />
     <ClCompile Include="Class\Player.cpp" />
+    <ClCompile Include="Class\CardTypes\SashimiCard.cpp" />
+    <ClCompile Include="Class\CardTypes\DumplingCard.cpp" />
+    <ClCompile Include="Class\CardTypes\TempuraCard.cpp" />
+    <ClCompile Include="Class\CardTypes\NigiriCard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Card.h" />
-    <ClInclude Include="Header\CardTypes\Dumpling.h" />
+    <ClInclude Include="Header\CardTypes\DumplingCard.h" />
+    <ClInclude Include="Header\CardTypes\NigiriCard.h" />
     <ClInclude Include="Header\Game.h" />
     <ClInclude Include="Header\CardTypes\MakiCard.h" />
     <ClInclude Include="Header\Player.h" />
-    <ClInclude Include="Header\CardTypes\Sashimi.h" />
-    <ClInclude Include="Header\CardTypes\Tempura.h" />
+    <ClInclude Include="Header\CardTypes\SashimiCard.h" />
+    <ClInclude Include="Header\CardTypes\TempuraCard.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
