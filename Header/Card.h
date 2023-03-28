@@ -9,6 +9,8 @@ enum CardType {
 	MakiRoll, Tempura, Sashimi, Dumpling, Nigiri
 };
 
+
+
 class Card {
 	public:
 	virtual ~Card() {}

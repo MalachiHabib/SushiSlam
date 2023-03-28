@@ -75,27 +75,33 @@ void Game::displayHand(Player* player) {
 
 void Game::playTurn() {
 	cout << "~~~ round" + to_string(_currentRound) + "~~~" << endl;
-
-	for (Player* player : _players) {
-		_currentPlayer = player;
-		cout << "PLAYER " + player->getName() + " TURN" << endl;
-		displayHand(player);
-		int userInput = getUserInput(10);
-		cout << "You entered: " << userInput << endl;
+	while (true){
+		for (Player* player : _players) {
+			cout << player->getHand().size();
+			_currentPlayer = player;
+			cout << "PLAYER " + player->getName() + " TURN" << endl;
+			player->printTableau();
+			displayHand(player);
+			int userInput = getUserInput(10);
+			player->addCardToTableau(player->getHand().at(userInput));
+		}
 	}
-	_currentRound++;
+
 }
 
 int Game::getUserInput(int currentPlayerHandSize) {
+	//handle empty input if time permits
 	int input;
 	cout << "Select a card to add to your tableau:" << endl;
-	while (!(cin >> input || input > currentPlayerHandSize)) {
-		if (input > currentPlayerHandSize) {
-			cout << "Invalid input. Please enter a valid card number: ";
-		}
+	while (!(cin >> input) || input < 1 || input > currentPlayerHandSize) {
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cout << "Invalid input. Please enter an integer: ";
+		if (input < 1 || input > currentPlayerHandSize) {
+			cout << "Invalid input. Please enter a valid card number: ";
+		}
+		else {
+			cout << "Invalid input. Please enter an integer: ";
+		}
 	}
 	return input;
 }

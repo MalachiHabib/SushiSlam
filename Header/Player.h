@@ -21,7 +21,7 @@ class Player {
 	void clearTableau();
 	void printTableau();
 	vector<Card*> getHand();
-	void setHand(vector<Card*>);
+	void setHand(vector<Card*> hand);
 	int calculateRoundScore(const vector<Card*>& otherTableau);
 	string getName() const;
 };

@@ -22,27 +22,33 @@ string Player::getName() const {
 
 void Player::addCardToTableau(Card* card) {
 	_tableau.emplace_back(card);
+	for (int i = 0; i < _hand.size(); i++) {
+		if (_hand[i] == card) {
+			_hand.erase(_hand.begin() + i);
+		}
+	}
 }
 
 void Player::printTableau()
 {
+	cout << "Tableau: " << endl;
 	for (Card* card : _tableau) {
-		switch (card->type()) {
-			case CardType::MakiRoll: cout << "MakiRoll" << endl;
-		}
+		cout << card->str() << endl;
 	}
 }
 
 vector<Card*> Player::getHand()
 {
-	vector<Card*> currentHand;
-	for (Card* card : _hand) {
-		currentHand.emplace_back(card);
+	if (!(_hand.empty())) {
+		vector<Card*> currentHand;
+		for (Card* card : _hand) {
+			currentHand.emplace_back(card);
+		}
+		return currentHand;
 	}
-	return currentHand;
 }
 
-void Player::setHand(vector<Card*> newHand) 
+void Player::setHand(vector<Card*> newHand)
 {
 	_hand = newHand;
 }
