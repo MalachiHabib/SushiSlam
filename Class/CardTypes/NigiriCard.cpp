@@ -5,10 +5,17 @@ NigiriCard::NigiriCard(NigiriType nigiriType) : nigiriType(nigiriType)
 }
 
 CardType NigiriCard::type() const {
-	return Dumpling;
+	return Nigiri;
 }
 
 string NigiriCard::str() const
 {
-	return "MakiRoll()";
+	switch (nigiriType) {
+		case Egg: return "Nigiri (Egg)";
+		case Squid: return "Nigiri (Squid)";
+		case Salmon: return "Nigiri (Salmon)";
+		default: return "----- Error -----";
+	}
 }
+
+

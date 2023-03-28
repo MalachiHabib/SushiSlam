@@ -13,5 +13,5 @@ CardType MakiCard::type() const {
 
 string MakiCard::str() const
 {
-	return "MakiRoll(" + std::to_string(makiCount) + ")";
+	return "MakiRoll (" + std::to_string(makiCount) + ")";
 }

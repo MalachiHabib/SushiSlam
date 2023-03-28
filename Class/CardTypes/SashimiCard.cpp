@@ -10,5 +10,5 @@ CardType SashimiCard::type() const {
 
 string SashimiCard::str() const
 {
-	return "MakiRoll()";
+	return "Sashimi";
 }

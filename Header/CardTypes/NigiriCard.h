@@ -4,6 +4,7 @@
 #include <string>
 
 using namespace std;
+
 enum NigiriType {
 	Egg, Squid, Salmon
 };

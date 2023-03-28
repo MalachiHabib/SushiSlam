@@ -10,5 +10,5 @@ CardType TempuraCard::type() const {
 
 string TempuraCard::str() const
 {
-	return "MakiRoll()";
+	return "Tempura";
 }

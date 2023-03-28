@@ -25,12 +25,12 @@ class Game {
 	void createDeck();
 	void shuffleDeck();
 	void populateHands();
+	void displayHand(Player* player);
 	void startRound();
 	void endRound();
 	Player* getNextPlayer();
 	void playTurn();
 	void swapHands();
-	void printTesting();
 };
 
 #endif

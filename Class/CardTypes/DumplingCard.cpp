@@ -10,5 +10,5 @@ CardType DumplingCard::type() const {
 
 string DumplingCard::str() const
 {
-	return "MakiRoll()";
+	return "Dumpling";
 }

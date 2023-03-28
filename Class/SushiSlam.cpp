@@ -6,6 +6,6 @@ int main() {
 	game.createDeck();
 	game.shuffleDeck();
 	game.populateHands();
-	game.printTesting();
+	game.swapHands();
 	return 0;
 }

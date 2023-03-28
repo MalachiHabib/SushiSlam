@@ -33,11 +33,18 @@ void Player::printTableau()
 	}
 }
 
-void Player::printHand()
+vector<Card*> Player::getHand()
 {
+	vector<Card*> currentHand;
 	for (Card* card : _hand) {
-		cout << card->str() << endl;
+		currentHand.emplace_back(card);
 	}
+	return currentHand;
+}
+
+void Player::setHand(vector<Card*> newHand) 
+{
+	_hand = newHand;
 }
 
 

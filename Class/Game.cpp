@@ -10,6 +10,7 @@
 #include "../Header/CardTypes/TempuraCard.h"
 
 using namespace std;
+
 void Game::initPlayers() {
 	for (int i = 0; i < 2; i++) {
 		_players.emplace_back(new Player());
@@ -44,17 +45,11 @@ void Game::createDeck()
 		_gameDeck.emplace_back(new NigiriCard(Egg));
 		_gameDeck.emplace_back(new NigiriCard(Squid));
 	}
-
-	int count = 0;
-	for (Card* card : _gameDeck) {
-		count++;
-	}
-	cout << to_string(count) << endl;
 }
 
 void Game::shuffleDeck()
 {
-	std::shuffle(_gameDeck.begin(), _gameDeck.end(), std::default_random_engine(std::random_device()( )));
+	shuffle(_gameDeck.begin(), _gameDeck.end(), default_random_engine(random_device()( )));
 }
 
 void Game::populateHands()
@@ -65,14 +60,22 @@ void Game::populateHands()
 			_gameDeck.erase(_gameDeck.begin() + i);
 		}
 	}
+
 }
 
-void Game::printTesting()
-{
-	for (Player* player : _players) {
-		cout << player->getName() << endl;
-		player->printHand();
+void Game::displayHand(Player* player) {
+	cout << "Current hand:" << endl;
+	for (Card* card : player->getHand()) {
+		cout << card->str() << endl;
 	}
 }
 
-
+void Game::swapHands()
+{
+	displayHand(_players[0]);
+	cout << "" << endl;
+	vector<Card*> temp = _players[0]->getHand();
+	_players[0]->setHand(_players[1]->getHand());
+	_players[1]->setHand(temp);
+	displayHand(_players[0]);
+}

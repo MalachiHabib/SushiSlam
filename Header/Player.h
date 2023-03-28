@@ -20,10 +20,10 @@ class Player {
 	void addCardToTableau(Card* card);
 	void clearTableau();
 	void printTableau();
-	void printHand();
+	vector<Card*> getHand();
+	void setHand(vector<Card*>);
 	int calculateRoundScore(const vector<Card*>& otherTableau);
 	string getName() const;
-	string getCardDescription(int index) const;
 };
 
 #endif
