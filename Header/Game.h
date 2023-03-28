@@ -14,12 +14,13 @@ class Game {
 	private:
 	vector<Card*> _gameDeck;
 	vector<Player*> _players;
-	int _currentRound;
+	int _currentRound = 1;
 	int _currentTurn;
 	Player* _currentPlayer;
 
 	public:
 	void initPlayers();
+	int getUserInput(int playerCurrentHandSize);
 	void startGame();
 	void endGame();
 	void createDeck();

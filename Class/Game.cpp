@@ -49,7 +49,7 @@ void Game::createDeck()
 
 void Game::shuffleDeck()
 {
-	shuffle(_gameDeck.begin(), _gameDeck.end(), default_random_engine(random_device()( )));
+	shuffle(_gameDeck.begin(), _gameDeck.end(), default_random_engine(random_device()()));
 }
 
 void Game::populateHands()
@@ -65,17 +65,45 @@ void Game::populateHands()
 
 void Game::displayHand(Player* player) {
 	cout << "Current hand:" << endl;
+	//revisit this and use the index of the card
+	int cardNo = 1;
 	for (Card* card : player->getHand()) {
-		cout << card->str() << endl;
+		cout << to_string(cardNo) + ". " + card->str() << endl;
+		cardNo++;
 	}
+}
+
+void Game::playTurn() {
+	cout << "~~~ round" + to_string(_currentRound) + "~~~" << endl;
+
+	for (Player* player : _players) {
+		_currentPlayer = player;
+		cout << "PLAYER " + player->getName() + " TURN" << endl;
+		displayHand(player);
+		int userInput = getUserInput(10);
+		cout << "You entered: " << userInput << endl;
+	}
+	_currentRound++;
+}
+
+int Game::getUserInput(int currentPlayerHandSize) {
+	int input;
+	cout << "Select a card to add to your tableau:" << endl;
+	while (!(cin >> input || input > currentPlayerHandSize)) {
+		if (input > currentPlayerHandSize) {
+			cout << "Invalid input. Please enter a valid card number: ";
+		}
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Invalid input. Please enter an integer: ";
+	}
+	return input;
 }
 
 void Game::swapHands()
 {
-	displayHand(_players[0]);
-	cout << "" << endl;
+	//this method relies on the fact there are only two players.
 	vector<Card*> temp = _players[0]->getHand();
 	_players[0]->setHand(_players[1]->getHand());
 	_players[1]->setHand(temp);
-	displayHand(_players[0]);
 }
