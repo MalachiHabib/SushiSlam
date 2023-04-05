@@ -12,3 +12,9 @@ string DumplingCard::str() const
 {
 	return "Dumpling";
 }
+
+int DumplingCard::score(vector<Card*> tableau, vector<Card*> otherPlayerTableau) const
+{
+
+}
+

@@ -9,6 +9,5 @@ class TempuraCard : public Card {
 
 	CardType type() const;
 	string str() const;
-
-	private:
+	int score(vector<Card*> tableau, vector<Card*> otherPlayerTableau) const;
 };

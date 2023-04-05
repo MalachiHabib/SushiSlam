@@ -74,19 +74,20 @@ void Game::displayHand(Player* player) {
 }
 
 void Game::playTurn() {
-	cout << "~~~ round" + to_string(_currentRound) + "~~~" << endl;
+	cout << "~~~ round " + to_string(_currentRound) + "/3 ~~~" << endl;
 	while (true){
 		for (Player* player : _players) {
-			cout << player->getHand().size();
 			_currentPlayer = player;
 			cout << "PLAYER " + player->getName() + " TURN" << endl;
 			player->printTableau();
 			displayHand(player);
 			int userInput = getUserInput(10);
-			player->addCardToTableau(player->getHand().at(userInput));
+			player->addCardToTableau(player->getHand().at(userInput-1));
+			cout << endl;
+
+			
 		}
 	}
-
 }
 
 int Game::getUserInput(int currentPlayerHandSize) {

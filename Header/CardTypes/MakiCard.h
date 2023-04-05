@@ -9,6 +9,7 @@ class MakiCard : public Card {
 
 	CardType type() const;
 	string str() const;
+	int score(vector<Card*> tableau, vector<Card*> otherPlayerTableau) const;
 
 	private:
 	int makiCount;
