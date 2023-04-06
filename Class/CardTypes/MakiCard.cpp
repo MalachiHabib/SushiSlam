@@ -14,21 +14,26 @@ string MakiCard::str() const
 	return "MakiRoll (" + std::to_string(makiCount) + ")";
 }
 
-int MakiCard::score(vector<Card*> tableau, vector<Card*> otherPlayerTableau) const
+int MakiCard::score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTableau) const
 {
-	int cardScores[] = { 0, 0 };
-	int counts[] = { 0, 0 };
-	vector<Card*> tableaus[] = { tableau, otherPlayerTableau };
+	int playerOneCount = countMakis(playerOneTableau);
+	int playerTwoCount = countMakis(playerTwoTableau);
 
-	for (int i = 0; i < 2; i++) {
-		for (Card* card : tableaus[i]) {
-			if (card->type() == MakiRoll) {
-				counts[i]++;
-			}
+	if (playerOneCount > playerTwoCount) {
+		return 6;
+	}
+	return 3;
+}
+
+int MakiCard::countMakis(vector<Card*> tableau) const
+{
+	int numberOfMakis = 0;
+	for (Card* card : tableau) {
+		if (card->type() == MakiRoll) {
+			numberOfMakis++;
 		}
 	}
-
-	cardScores[0] = (counts[0] != counts[1]) ? (counts[0] > counts[1] ? 6 : 3) : 0;
-	cardScores[1] = (counts[0] != counts[1]) ? (counts[1] > counts[0] ? 6 : 3) : 0;
+	return numberOfMakis;
 }
+
 

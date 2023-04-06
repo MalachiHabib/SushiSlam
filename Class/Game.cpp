@@ -55,7 +55,7 @@ void Game::shuffleDeck()
 void Game::populateHands()
 {
 	for (Player* player : _players) {
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 5; i++) {
 			player->addCardToHand(_gameDeck.at(i));
 			_gameDeck.erase(_gameDeck.begin() + i);
 		}
@@ -75,20 +75,28 @@ void Game::displayHand(Player* player) {
 
 void Game::playTurn() {
 	cout << "~~~ round " + to_string(_currentRound) + "/3 ~~~" << endl;
-	while (true){
+	bool gamePlaying = true;
+	while (gamePlaying) {
 		for (Player* player : _players) {
-			_currentPlayer = player;
-			cout << "PLAYER " + player->getName() + " TURN" << endl;
-			player->printTableau();
-			displayHand(player);
-			int userInput = getUserInput(10);
-			player->addCardToTableau(player->getHand().at(userInput-1));
-			cout << endl;
-
-			
+			if (player->getHand().empty()) {
+				gamePlaying = false;
+			}
+			else {
+				_currentPlayer = player;
+				cout << "PLAYER " + player->getName() + " TURN" << endl;
+				player->printTableau();
+				displayHand(player);
+				int userInput = getUserInput(10);
+				player->addCardToTableau(player->getHand().at(userInput - 1));
+			}
 		}
 	}
+	for (Player* player : _players) {
+		Player* otherPlayer = (player == _players[0]) ? _players[1] : _players[0];
+		cout << player->getName() << "'s score is " << player->calculateRoundScore(otherPlayer->getTableau()) << endl;
+	}
 }
+
 
 int Game::getUserInput(int currentPlayerHandSize) {
 	//handle empty input if time permits

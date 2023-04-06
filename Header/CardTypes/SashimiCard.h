@@ -9,5 +9,5 @@ class SashimiCard : public Card {
 
 	CardType type() const;
 	string str() const;
-	int score(vector<Card*> tableau, vector<Card*> otherPlayerTableau) const;S
+	int score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTableau) const;
 };

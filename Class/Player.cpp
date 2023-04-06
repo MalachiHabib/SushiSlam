@@ -1,6 +1,10 @@
 #include <iostream>
 #include "../Header/Player.h"
 #include "../Header/Card.h"
+#include <set>
+#include <algorithm>
+#include <iomanip>
+
 
 
 using namespace std;
@@ -39,18 +43,39 @@ void Player::printTableau()
 
 vector<Card*> Player::getHand()
 {
-	if (!(_hand.empty())) {
-		vector<Card*> currentHand;
-		for (Card* card : _hand) {
-			currentHand.emplace_back(card);
-		}
-		return currentHand;
-	}
+	return _hand;
+}
+
+vector<Card*> Player::getTableau()
+{
+	return _tableau;
 }
 
 void Player::setHand(vector<Card*> newHand)
 {
 	_hand = newHand;
+}
+
+int Player::calculateRoundScore(vector<Card*> otherPlayerTableau)
+{
+	set<CardType> scoredCards;
+
+	bool hasMakiRoll = (std::find_if(_tableau.begin(), _tableau.end(), [](const Card* card) {
+		return card->type() == MakiRoll;
+		}) != _tableau.end());
+
+	if (!hasMakiRoll) {
+		_totalScore = +3;
+	}
+
+	for (Card* card : _tableau) {
+
+		if (scoredCards.count(card->type()) == 0) {
+			_totalScore += card->score(_tableau, otherPlayerTableau);
+			scoredCards.insert(card->type());
+		}
+	}
+	return _totalScore;
 }
 
 

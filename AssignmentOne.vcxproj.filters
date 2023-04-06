@@ -33,17 +33,17 @@
     <ClCompile Include="Class\CardTypes\MakiCard.cpp">
       <Filter>Source Files\Card Types</Filter>
     </ClCompile>
-    <ClCompile Include="Class\CardTypes\SashimiCard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Class\CardTypes\DumplingCard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Class\CardTypes\TempuraCard.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Card Types</Filter>
     </ClCompile>
     <ClCompile Include="Class\CardTypes\NigiriCard.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Card Types</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\CardTypes\SashimiCard.cpp">
+      <Filter>Source Files\Card Types</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\CardTypes\TempuraCard.cpp">
+      <Filter>Source Files\Card Types</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -69,7 +69,7 @@
       <Filter>Header Files\Card Types</Filter>
     </ClInclude>
     <ClInclude Include="Header\CardTypes\NigiriCard.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Card Types</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

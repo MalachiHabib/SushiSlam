@@ -10,13 +10,14 @@ enum NigiriType {
 };
 
 class NigiriCard : public Card {
-	public:
+public:
 	NigiriCard(NigiriType nigiriType);
 
 	CardType type() const;
+	NigiriType getNigiriType() const;
 	string str() const;
-	int score(vector<Card*> tableau, vector<Card*> otherPlayerTableau) const;
+	int score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTableau) const;
 
-	private:
+private:
 	NigiriType nigiriType;
 };

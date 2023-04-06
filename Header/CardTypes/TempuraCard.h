@@ -4,10 +4,10 @@
 using namespace std;
 
 class TempuraCard : public Card {
-	public:
+public:
 	TempuraCard();
 
 	CardType type() const;
 	string str() const;
-	int score(vector<Card*> tableau, vector<Card*> otherPlayerTableau) const;
+	int score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTableau) const;
 };
