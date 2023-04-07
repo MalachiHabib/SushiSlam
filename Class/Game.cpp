@@ -55,7 +55,7 @@ void Game::shuffleDeck()
 void Game::populateHands()
 {
 	for (Player* player : _players) {
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 1; i++) {
 			player->addCardToHand(_gameDeck.at(i));
 			_gameDeck.erase(_gameDeck.begin() + i);
 		}
@@ -73,8 +73,29 @@ void Game::displayHand(Player* player) {
 	}
 }
 
+void Game::getRoundScore() {
+	for (Player* player : _players) {
+		Player* otherPlayer = (player == _players[0]) ? _players[1] : _players[0];
+		cout << player->getName() << "'s score is " << player->calculateRoundScore(otherPlayer->getTableau()) << endl;
+	}
+}
+
+
+void Game::playRound() {
+	while (_currentRound != _maxRounds) {
+		for (Player* player : _players) {
+			player->clearTableau();
+		}
+		populateHands();
+		cout << "~~~ round " + to_string(_currentRound + 1) + "/3 ~~~" << endl;
+		playTurn();
+		cout << endl;
+		getRoundScore();
+		_currentRound++;
+	}
+}
+
 void Game::playTurn() {
-	cout << "~~~ round " + to_string(_currentRound) + "/3 ~~~" << endl;
 	bool gamePlaying = true;
 	while (gamePlaying) {
 		for (Player* player : _players) {
@@ -91,11 +112,8 @@ void Game::playTurn() {
 			}
 		}
 	}
-	for (Player* player : _players) {
-		Player* otherPlayer = (player == _players[0]) ? _players[1] : _players[0];
-		cout << player->getName() << "'s score is " << player->calculateRoundScore(otherPlayer->getTableau()) << endl;
-	}
 }
+
 
 
 int Game::getUserInput(int currentPlayerHandSize) {

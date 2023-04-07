@@ -49,6 +49,11 @@ vector<Card*> Player::getTableau()
 	return _tableau;
 }
 
+void Player::clearTableau()
+{
+	_tableau.clear();
+}
+
 void Player::setHand(vector<Card*> newHand)
 {
 	_hand = newHand;
@@ -56,23 +61,27 @@ void Player::setHand(vector<Card*> newHand)
 
 int Player::calculateRoundScore(vector<Card*> otherPlayerTableau)
 {
+	_totalScore = 0;
 	set<CardType> scoredCards;
-
-	bool hasMakiRoll = (std::find_if(_tableau.begin(), _tableau.end(), [](const Card* card) {
-		return card->type() == MakiRoll;
-		}) != _tableau.end());
-
-	if (!hasMakiRoll) {
-		_totalScore = +3;
-	}
-
 	for (Card* card : _tableau) {
-
+		//checks if the card is already in scoredCards
 		if (scoredCards.count(card->type()) == 0) {
+			//scores the card
 			_totalScore += card->score(_tableau, otherPlayerTableau);
+			//adds the card to the scoredCards set
 			scoredCards.insert(card->type());
 		}
 	}
+
+	//TODO : implement better fix for this . . .
+	bool otherPlayerHasMakiRoll = (std::find_if(otherPlayerTableau.begin(), otherPlayerTableau.end(), [](const Card* card) {
+		return card->type() == MakiRoll;
+		}) != otherPlayerTableau.end());
+
+	if (!scoredCards.count(MakiRoll) && otherPlayerHasMakiRoll) {
+		_totalScore += 3;
+	}
+
 	return _totalScore;
 }
 

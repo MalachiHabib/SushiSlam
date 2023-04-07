@@ -5,7 +5,6 @@ int main() {
 	game.initPlayers();
 	game.createDeck();
 	game.shuffleDeck();
-	game.populateHands();
-	game.playTurn();
+	game.playRound();
 	return 0;
 }

@@ -11,26 +11,24 @@
 
 using namespace std;
 class Game {
-	private:
+private:
 	vector<Card*> _gameDeck;
 	vector<Player*> _players;
-	int _currentRound = 1;
+	int _currentRound = 0;
+	int _maxRounds = 3;
 	int _currentTurn;
 	Player* _currentPlayer;
 
-	public:
+public:
 	void initPlayers();
 	int getUserInput(int playerCurrentHandSize);
-	void startGame();
-	void endGame();
 	void createDeck();
 	void shuffleDeck();
+	void getRoundScore();
 	void populateHands();
 	void displayHand(Player* player);
-	void startRound();
-	void endRound();
-	Player* getNextPlayer();
 	void playTurn();
+	void playRound();
 	void swapHands();
 };
 
