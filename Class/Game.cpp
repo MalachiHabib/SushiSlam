@@ -71,7 +71,6 @@ void Game::populateHands()
 			_gameDeck.erase(_gameDeck.begin() + i);
 		}
 	}
-
 }
 
 void Game::displayHand(Player* player) {
@@ -91,6 +90,9 @@ void Game::getRoundScore() {
 	}
 }
 
+void Game::cleanMemory() {
+
+}
 
 void Game::playRound() {
 	while (_currentRound != _maxRounds) {
@@ -124,8 +126,6 @@ void Game::playTurn() {
 		}
 	}
 }
-
-
 
 int Game::getUserInput(int currentPlayerHandSize) {
 	//handle empty input if time permits

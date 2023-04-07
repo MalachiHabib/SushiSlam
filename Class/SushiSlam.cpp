@@ -8,6 +8,7 @@ int main() {
 	game->createDeck();
 	game->shuffleDeck();
 	game->playRound();
+
 	delete game;
 	_CrtDumpMemoryLeaks();
 	return 0;

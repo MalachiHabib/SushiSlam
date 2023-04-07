@@ -23,6 +23,7 @@ private:
 public:
 	~Game();
 	void initPlayers();
+	void cleanMemory();
 	int getUserInput(int playerCurrentHandSize);
 	void createDeck();
 	void shuffleDeck();
