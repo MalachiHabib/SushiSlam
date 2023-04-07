@@ -11,7 +11,7 @@ enum CardType {
 
 class Card {
 public:
-	virtual ~Card() {}
+	virtual ~Card() = default;
 	virtual int score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTableau) const = 0;
 	virtual string str() const = 0;
 	virtual CardType type() const = 0;

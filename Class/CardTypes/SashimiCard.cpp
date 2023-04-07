@@ -17,6 +17,7 @@ int SashimiCard::score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTa
 {
 	int count = 0;
 	int score = 0;
+
 	for (Card* card : playerOneTableau) {
 		if (card->type() == Sashimi) {
 			count++;
@@ -27,4 +28,5 @@ int SashimiCard::score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTa
 		}
 		return score;
 	}
+	return score;
 }

@@ -8,13 +8,14 @@
 using namespace std;
 
 class Player {
-	private:
+private:
 	string _name;
 	int _totalScore;
 	vector<Card*> _tableau;
 	vector<Card*> _hand;
 
-	public:
+public:
+	~Player();
 	Player();
 	void addCardToHand(Card* card);
 	void addCardToTableau(Card* card);

@@ -1,6 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
+
 #include <iostream>
 #include <ctime>
 #include <algorithm>
@@ -16,10 +17,11 @@ private:
 	vector<Player*> _players;
 	int _currentRound = 0;
 	int _maxRounds = 3;
-	int _currentTurn;
+	int _currentTurn = 0;
 	Player* _currentPlayer;
 
 public:
+	~Game();
 	void initPlayers();
 	int getUserInput(int playerCurrentHandSize);
 	void createDeck();

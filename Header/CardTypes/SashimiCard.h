@@ -4,7 +4,7 @@
 using namespace std;
 
 class SashimiCard : public Card {
-	public:
+public:
 	SashimiCard();
 
 	CardType type() const;

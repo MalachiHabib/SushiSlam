@@ -11,6 +11,17 @@
 
 using namespace std;
 
+Game::~Game()
+{
+	for (Player* player : _players) {
+		delete player; player = nullptr;
+	}
+
+	for (Card* card : _gameDeck) {
+		delete card; card = nullptr;
+	}
+}
+
 void Game::initPlayers() {
 	for (int i = 0; i < 2; i++) {
 		_players.emplace_back(new Player());
@@ -140,3 +151,4 @@ void Game::swapHands()
 	_players[0]->setHand(_players[1]->getHand());
 	_players[1]->setHand(temp);
 }
+
