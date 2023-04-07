@@ -1,4 +1,5 @@
 #include "../../Header/CardTypes/DumplingCard.h"
+#include <algorithm>
 
 DumplingCard::DumplingCard()
 {
@@ -15,18 +16,17 @@ string DumplingCard::str() const
 
 int DumplingCard::score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTableau) const
 {
-	int count = 0;
-	int score = 0;
-	for (Card* card : playerOneTableau) {
-		if (card->type() == Dumpling) {
-			count++;
-			score = count == 1 ? 1 :
-					count == 2 ? 3 :
-					count == 3 ? 6 :
-					count == 4 ? 10 :
-					count > 4 ? 15 : 0;
-		}
-	}
+
+	int count = count_if(playerOneTableau.begin(), playerOneTableau.end(), [](Card* cardPtr) {
+		return cardPtr->type() == Dumpling;
+		});
+
+	int score = count == 1 ? 1 :
+				count == 2 ? 3 :
+				count == 3 ? 6 :
+				count == 4 ? 10 :
+				count > 4 ? 15 : 0;
+
 	return score;
 }
 
