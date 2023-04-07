@@ -1,4 +1,5 @@
 #include "../../Header/CardTypes/SashimiCard.h"
+#include <algorithm>
 
 SashimiCard::SashimiCard()
 {
@@ -15,18 +16,10 @@ string SashimiCard::str() const
 
 int SashimiCard::score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTableau) const
 {
-	int count = 0;
-	int score = 0;
+	int count = count_if(playerOneTableau.begin(), playerOneTableau.end(), [](Card* cardPtr) {
+		return cardPtr->type() == Sashimi;
+		});
 
-	for (Card* card : playerOneTableau) {
-		if (card->type() == Sashimi) {
-			count++;
-			if (count == 3) {
-				count = 0;
-				score += 10;
-			}
-		}
-		return score;
-	}
+	int score = (count == 3) ? 10 : 0;
 	return score;
 }

@@ -1,4 +1,6 @@
 #include "../../Header/CardTypes/NigiriCard.h"
+#include <algorithm>
+#include <numeric>
 
 NigiriCard::NigiriCard(NigiriType nigiriType) : nigiriType(nigiriType)
 {
@@ -25,17 +27,18 @@ string NigiriCard::str() const
 
 int NigiriCard::score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTableau) const
 {
-	int count = 0;
-	int score = 0;
-
-	for (Card* card : playerOneTableau) {
+	int score = accumulate(playerOneTableau.begin(), playerOneTableau.end(), 0, [](int current_score, Card* card) {
 		if (card->type() == Nigiri) {
 			NigiriCard* nigiriCard = dynamic_cast<NigiriCard*>(card);
-			score += (nigiriCard->getNigiriType() == Egg) ? 1 :
-					 (nigiriCard->getNigiriType() == Salmon) ? 2 :
-					 (nigiriCard->getNigiriType() == Squid) ? 3 : 0;
+			if (nigiriCard) {
+				return current_score +
+					(nigiriCard->getNigiriType() == Egg) ? 1 :
+					(nigiriCard->getNigiriType() == Salmon) ? 2 :
+					(nigiriCard->getNigiriType() == Squid) ? 3 : 0;
+			}
 		}
-	}
+		return current_score;
+		});
 	return score;
 }
 
