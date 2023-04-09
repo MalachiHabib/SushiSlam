@@ -71,5 +71,8 @@
     <ClInclude Include="Header\CardTypes\NigiriCard.h">
       <Filter>Header Files\Card Types</Filter>
     </ClInclude>
+    <ClInclude Include="Header\GameText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,5 @@
 #ifndef GAME_H
 #define GAME_H
-
-
 #include <iostream>
 #include <ctime>
 #include <algorithm>
@@ -10,28 +8,32 @@
 #include "Player.h"
 #include "../Header/CardTypes/MakiCard.h"
 
-using namespace std;
 class Game {
 private:
-	vector<Card*> _gameDeck;
-	vector<Player*> _players;
+	std::vector<Card*> _gameDeck;
+	std::vector<Player*> _players;
+	Player* _currentPlayer;
+
 	int _currentRound = 0;
 	int _maxRounds = 3;
 	int _currentTurn = 0;
-	Player* _currentPlayer;
 
 public:
 	~Game();
+
 	void initPlayers();
-	void cleanMemory();
 	int getUserInput(int playerCurrentHandSize);
+	void displayHand(Player* player);
+
+	void play();
+	void playTurn();
+
+	void getRoundScore();
+	void getTotalScore();
+
 	void createDeck();
 	void shuffleDeck();
-	void getRoundScore();
 	void populateHands();
-	void displayHand(Player* player);
-	void playTurn();
-	void playRound();
 	void swapHands();
 };
 

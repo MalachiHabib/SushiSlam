@@ -1,9 +1,7 @@
-#pragma once
-
+#ifndef CARD_H
+#define CARD_H
 #include <string>
 #include <vector>
-
-using namespace std;
 
 enum CardType {
 	MakiRoll, Tempura, Sashimi, Dumpling, Nigiri
@@ -12,7 +10,8 @@ enum CardType {
 class Card {
 public:
 	virtual ~Card() = default;
-	virtual int score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTableau) const = 0;
-	virtual string str() const = 0;
+	virtual int score(std::vector<Card*> playerOneTableau, std::vector<Card*> playerTwoTableau) const = 0;
+	virtual std::string str() const = 0;
 	virtual CardType type() const = 0;
 };
+#endif

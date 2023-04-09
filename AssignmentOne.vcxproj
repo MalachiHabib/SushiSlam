@@ -192,6 +192,7 @@
     <ClCompile Include="Class\CardTypes\NigiriCard.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header\GameText.h" />
     <ClInclude Include="Header\Card.h" />
     <ClInclude Include="Header\CardTypes\DumplingCard.h" />
     <ClInclude Include="Header\CardTypes\NigiriCard.h" />

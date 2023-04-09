@@ -1,9 +1,7 @@
-#pragma once
-#pragma once
+#ifndef NIGIRI_CARD_H
+#define NIGIRI_CARD_H
 #include "../Card.h"
 #include <string>
-
-using namespace std;
 
 enum NigiriType {
 	Egg, Squid, Salmon
@@ -15,9 +13,10 @@ public:
 
 	CardType type() const;
 	NigiriType getNigiriType() const;
-	string str() const;
-	int score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTableau) const;
+	std::string str() const;
+	int score(std::vector<Card*> playerOneTableau, std::vector<Card*> playerTwoTableau) const;
 
 private:
-	NigiriType nigiriType;
+	NigiriType _nigiriType;
 };
+#endif

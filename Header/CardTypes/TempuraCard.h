@@ -1,13 +1,14 @@
-#pragma once
+#ifndef TEMPURA_CARD_H
+#define TEMPURA_CARD_H
 #include "../Card.h"
 #include <string>
-using namespace std;
 
 class TempuraCard : public Card {
 public:
 	TempuraCard();
 
 	CardType type() const;
-	string str() const;
-	int score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTableau) const;
+	std::string str() const;
+	int score(std::vector<Card*> playerOneTableau, std::vector<Card*> playerTwoTableau) const;
 };
+#endif

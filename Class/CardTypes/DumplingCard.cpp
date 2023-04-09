@@ -1,6 +1,7 @@
 #include "../../Header/CardTypes/DumplingCard.h"
 #include <algorithm>
 
+
 DumplingCard::DumplingCard()
 {
 }
@@ -9,12 +10,12 @@ CardType DumplingCard::type() const {
 	return Dumpling;
 }
 
-string DumplingCard::str() const
+std::string DumplingCard::str() const
 {
 	return "Dumpling";
 }
 
-int DumplingCard::score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTableau) const
+int DumplingCard::score(std::vector<Card*> playerOneTableau, std::vector<Card*> playerTwoTableau) const
 {
 
 	int count = count_if(playerOneTableau.begin(), playerOneTableau.end(), [](Card* cardPtr) {

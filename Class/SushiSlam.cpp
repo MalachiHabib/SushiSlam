@@ -4,10 +4,7 @@
 
 int main() {
 	Game* game = new Game;
-	game->initPlayers();
-	game->createDeck();
-	game->shuffleDeck();
-	game->playRound();
+	game->play();
 
 	delete game;
 	_CrtDumpMemoryLeaks();

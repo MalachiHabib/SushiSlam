@@ -1,13 +1,15 @@
-#pragma once
+#ifndef DUMPLING_CARD_H
+#define DUMPLING_CARD_H
+
 #include "../Card.h"
 #include <string>
-using namespace std;
 
 class DumplingCard : public Card {
 	public:
 	DumplingCard();
 
 	CardType type() const;
-	string str() const;
-	int score(vector<Card*> playerOneTableau, vector<Card*> playerTwoTableau) const;
+	std::string str() const;
+	int score(std::vector<Card*> playerOneTableau, std::vector<Card*> playerTwoTableau) const;
 };
+#endif

@@ -4,7 +4,7 @@
 #include <set>
 #include <algorithm>
 
-using namespace std;
+
 
 Player::~Player()
 {
@@ -17,9 +17,10 @@ Player::~Player()
 }
 
 
-Player::Player() : _totalScore(0) {
+Player::Player() : _totalScore(0)
+{
 	// Select a random name from the list of names
-	string names[] = { "Sam", "Billy", "Jen", "Bob", "Sally", "Joe", "Sue", "Sasha", "Tina", "Marge" };
+	std::string names[] = { "Sam", "Billy", "Jen", "Bob", "Sally", "Joe", "Sue", "Sasha", "Tina", "Marge" };
 	_name = names[rand() % 10];
 }
 
@@ -28,13 +29,15 @@ void Player::addCardToHand(Card* cardPtr)
 	_hand.emplace_back(cardPtr);
 }
 
-string Player::getName() const {
+std::string Player::getName() const 
+{
 	return _name;
 }
 
-void Player::addCardToTableau(Card* cardPtr) {
+void Player::addCardToTableau(Card* cardPtr) 
+{
 	_tableau.emplace_back(cardPtr);
-	for (int i = 0; i < _hand.size(); i++) {
+	for (int i = 0; i < _hand.size(); ++i) {
 		if (_hand[i] == cardPtr) {
 			_hand.erase(_hand.begin() + i);
 		}
@@ -43,18 +46,18 @@ void Player::addCardToTableau(Card* cardPtr) {
 
 void Player::printTableau()
 {
-	cout << "Tableau: " << endl;
+	std::cout << "Tableau: " << std::endl;
 	for (Card* cardPtr : _tableau) {
-		cout << cardPtr->str() << endl;
+		std::cout << cardPtr->str() << std::endl;
 	}
 }
 
-vector<Card*> Player::getHand()
+std::vector<Card*> Player::getHand()
 {
 	return _hand;
 }
 
-vector<Card*> Player::getTableau()
+std::vector<Card*> Player::getTableau()
 {
 	return _tableau;
 }
@@ -67,20 +70,24 @@ void Player::clearTableau()
 	_tableau.clear();
 }
 
-void Player::setHand(vector<Card*> newHand)
+void Player::setHand(std::vector<Card*> newHand)
 {
 	_hand = newHand;
 }
 
-int Player::calculateRoundScore(vector<Card*> otherPlayerTableau)
+int Player::getTotalScore() {
+	return _totalScore;
+}
+
+int Player::calculateRoundScore(std::vector<Card*> otherPlayerTableau)
 {
-	_totalScore = 0;
-	set<CardType> scoredCards;
+	int roundScore = 0;
+	std::set<CardType> scoredCards;
 	for (Card* cardPtr : _tableau) {
 		//checks if the cardPtr is already in scoredCards
 		if (scoredCards.count(cardPtr->type()) == 0) {
 			//scores the cardPtr
-			_totalScore += cardPtr->score(_tableau, otherPlayerTableau);
+			roundScore += cardPtr->score(_tableau, otherPlayerTableau);
 			//adds the cardPtr to the scoredCards set
 			scoredCards.insert(cardPtr->type());
 		}
@@ -92,10 +99,10 @@ int Player::calculateRoundScore(vector<Card*> otherPlayerTableau)
 		}) != otherPlayerTableau.end());
 
 	if (!scoredCards.count(MakiRoll) && otherPlayerHasMakiRoll) {
-		_totalScore += 3;
+		roundScore += 3;
 	}
-
-	return _totalScore;
+	_totalScore += roundScore;
+	return roundScore;
 }
 
 
