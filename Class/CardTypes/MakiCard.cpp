@@ -1,7 +1,7 @@
 #include "../../Header/CardTypes/MakiCard.h"
 #include <iostream>
 
-MakiCard::MakiCard(int makiCount) : makiCount(makiCount) 
+MakiCard::MakiCard(int _makiCount) : _makiCount(_makiCount) 
 {
 }
 
@@ -13,7 +13,7 @@ CardType MakiCard::type() const
 
 std::string MakiCard::str() const
 {
-	return "MakiRoll (" + std::to_string(makiCount) + ")";
+	return "MakiRoll (" + std::to_string(_makiCount) + ")";
 }
 
 int MakiCard::score(std::vector<Card*> playerOneTableau, std::vector<Card*> playerTwoTableau) const
@@ -33,7 +33,7 @@ int MakiCard::countMakis(std::vector<Card*> tableau) const
 	for (Card* card : tableau) {
 		if (card->type() == MakiRoll) {
 			MakiCard* makiCard = dynamic_cast<MakiCard*>(card);
-			numberOfMakis+= makiCard->makiCount;
+			numberOfMakis+= makiCard->_makiCount;
 		}
 	}
 	return numberOfMakis;

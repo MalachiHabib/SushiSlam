@@ -4,8 +4,6 @@
 #include <set>
 #include <algorithm>
 
-
-
 Player::~Player()
 {
 	for (Card* cardPtr : _hand) {
@@ -16,12 +14,15 @@ Player::~Player()
 	}
 }
 
-
 Player::Player() : _totalScore(0)
 {
-	// Select a random name from the list of names
 	std::string names[] = { "Sam", "Billy", "Jen", "Bob", "Sally", "Joe", "Sue", "Sasha", "Tina", "Marge" };
 	_name = names[rand() % 10];
+}
+
+std::string Player::getName() const
+{
+	return _name;
 }
 
 void Player::addCardToHand(Card* cardPtr)
@@ -29,12 +30,7 @@ void Player::addCardToHand(Card* cardPtr)
 	_hand.emplace_back(cardPtr);
 }
 
-std::string Player::getName() const 
-{
-	return _name;
-}
-
-void Player::addCardToTableau(Card* cardPtr) 
+void Player::addCardToTableau(Card* cardPtr)
 {
 	_tableau.emplace_back(cardPtr);
 	for (int i = 0; i < _hand.size(); ++i) {
@@ -92,12 +88,12 @@ int Player::calculateRoundScore(std::vector<Card*> otherPlayerTableau)
 			scoredCards.insert(cardPtr->type());
 		}
 	}
-
 	//TODO : implement better fix for this . . .
 	bool otherPlayerHasMakiRoll = (std::find_if(otherPlayerTableau.begin(), otherPlayerTableau.end(), [](const Card* cardPtr) {
 		return cardPtr->type() == MakiRoll;
 		}) != otherPlayerTableau.end());
 
+	//if the player does not have any MakiRolls but the other player does, add 3 to their score as its impossible they have more than the other player.
 	if (!scoredCards.count(MakiRoll) && otherPlayerHasMakiRoll) {
 		roundScore += 3;
 	}

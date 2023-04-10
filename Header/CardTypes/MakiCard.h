@@ -5,7 +5,7 @@
 
 class MakiCard : public Card {
 	public:
-	MakiCard(int makiCount);
+	MakiCard(int _makiCount);
 
 	CardType type() const;
 	std::string str() const;
@@ -13,6 +13,6 @@ class MakiCard : public Card {
 	int countMakis(std::vector<Card*> tableu) const;
 
 	private:
-	int makiCount;
+	int _makiCount;
 };
 #endif

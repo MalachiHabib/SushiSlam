@@ -9,7 +9,7 @@ enum NigiriType {
 
 class NigiriCard : public Card {
 public:
-	NigiriCard(NigiriType nigiriType);
+	NigiriCard(NigiriType _nigiriType);
 
 	CardType type() const;
 	NigiriType getNigiriType() const;

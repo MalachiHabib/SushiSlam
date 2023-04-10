@@ -3,7 +3,7 @@
 #include <numeric>
 
 
-NigiriCard::NigiriCard(NigiriType nigiriType) : _nigiriType(nigiriType)
+NigiriCard::NigiriCard(NigiriType _nigiriType) : _nigiriType(_nigiriType)
 {
 }
 
@@ -30,11 +30,8 @@ int NigiriCard::score(std::vector<Card*> playerOneTableau, std::vector<Card*> pl
 {
 	int score = 0;
 	for (Card* card : playerOneTableau) {
-		//count the card if its type is Nigiri
 		if (card->type() == Nigiri) {
-			//cast the card to a NigiriCard to use the methods
 			NigiriCard* nigiriCard = dynamic_cast<NigiriCard*>(card);
-			//score the card based on the NigiriType
 			score +=
 				(nigiriCard->getNigiriType() == Egg) ? 1 :
 				(nigiriCard->getNigiriType() == Salmon) ? 2 :

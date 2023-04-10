@@ -17,7 +17,6 @@ std::string DumplingCard::str() const
 
 int DumplingCard::score(std::vector<Card*> playerOneTableau, std::vector<Card*> playerTwoTableau) const
 {
-
 	int count = count_if(playerOneTableau.begin(), playerOneTableau.end(), [](Card* cardPtr) {
 		return cardPtr->type() == Dumpling;
 		});
@@ -27,7 +26,6 @@ int DumplingCard::score(std::vector<Card*> playerOneTableau, std::vector<Card*> 
 				count == 3 ? 6 :
 				count == 4 ? 10 :
 				count > 4 ? 15 : 0;
-
 	return score;
 }
 

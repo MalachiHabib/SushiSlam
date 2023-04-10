@@ -21,6 +21,7 @@ private:
 public:
 	~Game();
 
+	void initGame();
 	void initPlayers();
 	int getUserInput(int playerCurrentHandSize);
 	void displayHand(Player* player);
