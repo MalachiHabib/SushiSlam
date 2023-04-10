@@ -112,21 +112,21 @@ void Game::swapHands()
  * This method is used to input from the user
  * The method handles any errors, and incorrect user input
  * 
- * @params currentPlayerHandSize, used to check if the user input is out of the allowed range
+ * @params handSize, used to check if the user input is out of the allowed range
  * 
  * @return input, returns the user input
  * 
  * @notes
  * 1. usage of clear and ignore are to remove any left of invalid characters from the input stream
  */
-int Game::getUserInput(int currentPlayerHandSize)
+int Game::getUserInput(int handSize)
 {
 	int input;
 	std::cout << "Select a card to add to your tableau:" << std::endl;
-	while (!(std::cin >> input) || input < 1 || input > currentPlayerHandSize) {
+	while (!(std::cin >> input) || input < 1 || input > handSize) {
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		if (input < 1 || input > currentPlayerHandSize) {
+		if (input < 1 || input > handSize) {
 			std::cout << "Invalid input. Please enter a valid card number: ";
 		}
 		else {
