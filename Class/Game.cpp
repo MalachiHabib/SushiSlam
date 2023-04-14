@@ -111,11 +111,11 @@ void Game::swapHands()
  *
  * This method is used to input from the user
  * The method handles any errors, and incorrect user input
- * 
+ *
  * @params handSize, used to check if the user input is out of the allowed range
- * 
+ *
  * @return input, returns the user input
- * 
+ *
  * @notes
  * 1. usage of clear and ignore are to remove any left of invalid characters from the input stream
  */
@@ -167,6 +167,7 @@ void Game::getRoundScore() {
 
 void Game::getTotalScore()
 {
+
 	//finds the element of the _players vector which has the highest total score
 	auto winner = std::max_element(_players.begin(), _players.end(),
 		[](const auto& player1, const auto& player2) {
@@ -177,7 +178,7 @@ void Game::getTotalScore()
 
 	std::cout << "~~~ End of game! ~~~" << std::endl;
 	for (Player* player : _players) {
-		std::cout << "  PLAYER " << player->getName() << "final score: " << player->getTotalScore() << std::endl;
+		std::cout << "  PLAYER " << player->getName() << " final score: " << player->getTotalScore() << std::endl;
 	}
 	//dereference the iterator of winner
 	std::cout << "PLAYER " << (*winner)->getName() << " WINS!" << std::endl;
